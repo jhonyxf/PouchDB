@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+        <h1>PouchDB + CouchDB SYNC</h1>
+        <script src="//cdn.jsdelivr.net/npm/pouchdb@7.1.1/dist/pouchdb.min.js"></script>
+        <script>
+          const localDB = new PouchDB('local_db');
+          localDB.put({
+              _id:'2',
+              name: 'Jhony',
+              sobrenome: 'Dias'
+          });
+          //Insere no servidor
+          localDB.replicate.to('http://localhost:5984/my-remote-db');
+          // insere local
+          localDB.replicate.from('http://localhost:5984/my-remote-db');
+
+        </script>
+</body>
+</html>

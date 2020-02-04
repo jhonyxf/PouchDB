@@ -1,0 +1,7 @@
+npm install http-server -g
+
+executar: http-server
+
+npm install -g add-cors-to-couchdb
+
+executar: add-cors-to-couchdb
